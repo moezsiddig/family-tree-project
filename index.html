@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prophets Family Tree</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Prophets Family Tree App</h1>
+    <p class="subtitle">Interactive Family Tree Data Structure Project</p>
+
+    <!-- Search Section -->
+    <div class="search-box">
+        <div class="input-container">
+            <input type="text" id="memberName" placeholder="Enter a name (e.g., Abraham, Muhammad)..." autocomplete="off">
+            <ul id="suggestionsList" class="hidden"></ul>
+        </div>
+        <button id="searchBtn">Search Lineage</button>
+    </div>
+
+    <!-- Results Section -->
+    <div id="resultsContainer" class="results-card hidden">
+        <h2>Results for: <span id="targetName"></span></h2>
+
+        <div class="result-section">
+            <h3>Descendants:</h3>
+            <p id="descendantsList">None</p>
+        </div>
+
+        <div class="result-section">
+            <h3>Ancestors:</h3>
+            <p id="ancestorsList">None</p>
+        </div>
+
+        <div class="result-section">
+            <h3>Siblings:</h3>
+            <p id="siblingsList">None</p>
+        </div>
+    </div>
+
+    <p id="errorMsg" class="error hidden"></p>
+</div>
+
+<!-- Footer with Copyright -->
+<footer class="footer">
+    <p class="app-name">Prophets Family Tree</p>
+    <p class="author">by Abdel Moez Mohammed &copy; 2026</p>
+    <p class="bootcamp">CIRCUIT STREAM - Software Development Bootcamp</p>
+</footer>
+
+<!-- Load JavaScript files -->
+<script src="FamilyTreeWeb.js"></script>
+<script src="web-app.js"></script>
+</body>
+</html>
+

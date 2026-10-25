@@ -1,0 +1,289 @@
+// Initialize the tree
+const tree = new FamilyTree();
+
+// List of prophets to highlight them in green
+const prophetsList = [
+    "Adam", "Seth", "Idris", "Noah", "Hud", "Saleh", "Abraham", "Lot",
+    "Ishmael", "Isaac", "Jacob", "Joseph", "Shu'ayb", "Ayoub", "Zul-Kifl",
+    "Moses", "Aaron", "David", "Solomon", "Prophet Ilyas", "Yasa",
+    "Yunus", "Zakariya", "Yahya", "Jesus", "Muhammad"
+];
+
+// Honorifics for Ulul Azm (Prophets of Determination)
+const honorifics = {
+    "Noah": " (PBUH)",
+    "Abraham": " (PBUH)",
+    "Moses": " (PBUH)",
+    "Jesus": " (PBUH)",
+    "Muhammad": " (PBUH)"
+};
+
+// Add Members
+tree.addMember("Adam", "Unknown");
+tree.addMember("Cain", "Unknown");
+tree.addMember("Abel", "Unknown");
+tree.addMember("Seth", "Unknown");
+tree.addMember("Idris", "Unknown");
+tree.addMember("Noah", "Unknown");
+tree.addMember("Shem", "Unknown");
+tree.addMember("Ham", "Unknown");
+tree.addMember("Japheth", "Unknown");
+tree.addMember("Azar", "Unknown");
+tree.addMember("Abraham", "Unknown");
+tree.addMember("Nahor", "Unknown");
+tree.addMember("Haran", "Unknown");
+tree.addMember("Lot", "Unknown");
+
+tree.addMember("Ishmael", "Unknown");
+tree.addMember("Kedar", "Unknown");
+tree.addMember("Adnan", "Unknown");
+tree.addMember("Ma'ad", "Unknown");
+tree.addMember("Nizar", "Unknown");
+tree.addMember("Mudar", "Unknown");
+tree.addMember("Ilyas", "Unknown");
+tree.addMember("Mudrika", "Unknown");
+tree.addMember("Khuzaymah", "Unknown");
+tree.addMember("Kinana", "Unknown");
+tree.addMember("Al-Nadr", "Unknown");
+tree.addMember("Malik", "Unknown");
+tree.addMember("Fihr", "Unknown");
+tree.addMember("Quraysh", "Unknown");
+tree.addMember("Abd Manaf", "Unknown");
+tree.addMember("Hashim", "Unknown");
+tree.addMember("Abdul-Muttalib", "Unknown");
+tree.addMember("Abdullah", "Unknown");
+tree.addMember("Muhammad", "570-01-01");
+
+tree.addMember("Isaac", "Unknown");
+tree.addMember("Jacob", "Unknown");
+tree.addMember("Esau", "Unknown");
+tree.addMember("Ayoub", "Unknown");
+tree.addMember("Zul-Kifl", "Unknown");
+tree.addMember("Joseph", "Unknown");
+tree.addMember("Benjamin", "Unknown");
+tree.addMember("Matta", "Unknown");
+tree.addMember("Yunus", "Unknown");
+tree.addMember("Judah", "Unknown");
+tree.addMember("Levi", "Unknown");
+tree.addMember("Qohath", "Unknown");
+tree.addMember("Amram", "Unknown");
+tree.addMember("Moses", "Unknown");
+tree.addMember("Aaron", "Unknown");
+tree.addMember("Prophet Ilyas", "Unknown");
+tree.addMember("Yasa", "Unknown");
+tree.addMember("Mary", "Unknown");
+tree.addMember("Jesus", "Unknown");
+
+tree.addMember("Perez", "Unknown");
+tree.addMember("Jesse", "Unknown");
+tree.addMember("David", "Unknown");
+tree.addMember("Solomon", "Unknown");
+tree.addMember("Rehoboam", "Unknown");
+tree.addMember("Zakariya", "Unknown");
+tree.addMember("Yahya", "Unknown");
+
+tree.addMember("Hud", "Unknown");
+tree.addMember("Saleh", "Unknown");
+tree.addMember("Shu'ayb", "Unknown");
+
+// Define Relationships
+tree.defineRelationship("Adam", "Cain");
+tree.defineRelationship("Adam", "Abel");
+tree.defineRelationship("Adam", "Seth");
+tree.defineRelationship("Seth", "Idris");
+tree.defineRelationship("Idris", "Noah");
+
+tree.defineRelationship("Noah", "Shem");
+tree.defineRelationship("Noah", "Ham");
+tree.defineRelationship("Noah", "Japheth");
+tree.defineRelationship("Shem", "Azar");
+tree.defineRelationship("Azar", "Abraham");
+tree.defineRelationship("Azar", "Nahor");
+tree.defineRelationship("Azar", "Haran");
+tree.defineRelationship("Haran", "Lot");
+tree.defineRelationship("Abraham", "Ishmael");
+tree.defineRelationship("Abraham", "Isaac");
+
+tree.defineRelationship("Ishmael", "Kedar");
+tree.defineRelationship("Kedar", "Adnan");
+tree.defineRelationship("Adnan", "Ma'ad");
+tree.defineRelationship("Ma'ad", "Nizar");
+tree.defineRelationship("Nizar", "Mudar");
+tree.defineRelationship("Mudar", "Ilyas");
+tree.defineRelationship("Ilyas", "Mudrika");
+tree.defineRelationship("Mudrika", "Khuzaymah");
+tree.defineRelationship("Khuzaymah", "Kinana");
+tree.defineRelationship("Kinana", "Al-Nadr");
+tree.defineRelationship("Al-Nadr", "Malik");
+tree.defineRelationship("Malik", "Fihr");
+tree.defineRelationship("Fihr", "Quraysh");
+tree.defineRelationship("Quraysh", "Abd Manaf");
+tree.defineRelationship("Abd Manaf", "Hashim");
+tree.defineRelationship("Hashim", "Abdul-Muttalib");
+tree.defineRelationship("Abdul-Muttalib", "Abdullah");
+tree.defineRelationship("Abdullah", "Muhammad");
+
+tree.defineRelationship("Isaac", "Jacob");
+tree.defineRelationship("Isaac", "Esau");
+tree.defineRelationship("Esau", "Ayoub");
+tree.defineRelationship("Ayoub", "Zul-Kifl");
+
+tree.defineRelationship("Jacob", "Joseph");
+tree.defineRelationship("Jacob", "Benjamin");
+tree.defineRelationship("Jacob", "Judah");
+tree.defineRelationship("Jacob", "Levi");
+
+tree.defineRelationship("Benjamin", "Matta");
+tree.defineRelationship("Matta", "Yunus");
+tree.defineRelationship("Joseph", "Yasa");
+
+tree.defineRelationship("Judah", "Perez");
+tree.defineRelationship("Perez", "Jesse");
+tree.defineRelationship("Jesse", "David");
+tree.defineRelationship("David", "Solomon");
+tree.defineRelationship("Solomon", "Rehoboam");
+
+tree.defineRelationship("Levi", "Qohath");
+tree.defineRelationship("Qohath", "Amram");
+tree.defineRelationship("Amram", "Moses");
+tree.defineRelationship("Amram", "Aaron");
+tree.defineRelationship("Amram", "Mary");
+tree.defineRelationship("Mary", "Jesus");
+
+tree.defineRelationship("Aaron", "Prophet Ilyas");
+
+tree.defineRelationship("Solomon", "Zakariya");
+tree.defineRelationship("Zakariya", "Yahya");
+
+tree.defineRelationship("Shem", "Hud");
+tree.defineRelationship("Shem", "Saleh");
+tree.defineRelationship("Abraham", "Shu'ayb");
+
+
+// Helper Function
+function formatNames(namesArray, separator) {
+    if (namesArray.length === 0) {
+        return "None";
+    }
+
+    let result = "";
+
+    for (let i = 0; i < namesArray.length; i++) {
+        let name = namesArray[i];
+        let displayName = name;
+
+        // Add honorific if applicable
+        if (honorifics[name]) {
+            displayName += honorifics[name];
+        }
+
+        // Check if the name is in the prophets list to color it green
+        if (prophetsList.includes(name)) {
+            result += `<span class="prophet-name">${displayName}</span>`;
+        } else {
+            result += displayName;
+        }
+
+        // Add separator if it is not the last name
+        if (i < namesArray.length - 1) {
+            result += separator;
+        }
+    }
+
+    return result;
+}
+
+
+// Web Interface Logic
+document.getElementById('searchBtn').addEventListener('click', function() {
+    const nameInput = document.getElementById('memberName').value.trim();
+    const resultsContainer = document.getElementById('resultsContainer');
+    const errorMsg = document.getElementById('errorMsg');
+
+    errorMsg.classList.add('hidden');
+    resultsContainer.classList.add('hidden');
+
+    if (!nameInput) {
+        errorMsg.textContent = "Please enter a name.";
+        errorMsg.classList.remove('hidden');
+        return;
+    }
+
+    try {
+        const descendants = tree.findDescendants(nameInput);
+        const ancestors = tree.findAncestors(nameInput);
+        const siblings = tree.findSiblings(nameInput);
+
+        // Update the target name header with honorific
+        const nameHeader = document.getElementById('targetName');
+        let displayHeader = nameInput;
+
+        if (honorifics[nameInput]) {
+            displayHeader += honorifics[nameInput];
+        }
+
+        if (prophetsList.includes(nameInput)) {
+            nameHeader.innerHTML = `<span class="prophet-name">${displayHeader}</span>`;
+        } else {
+            nameHeader.textContent = displayHeader;
+        }
+
+        // Display the results
+        document.getElementById('descendantsList').innerHTML = formatNames(descendants, ', ');
+        document.getElementById('ancestorsList').innerHTML = formatNames(ancestors, ' 🔗 ');
+        document.getElementById('siblingsList').innerHTML = formatNames(siblings, ', ');
+
+        resultsContainer.classList.remove('hidden');
+
+    } catch (error) {
+        errorMsg.textContent = error.message;
+        errorMsg.classList.remove('hidden');
+    }
+});
+
+
+// Autocomplete Logic
+const searchInput = document.getElementById('memberName');
+const suggestionsList = document.getElementById('suggestionsList');
+
+searchInput.addEventListener('input', function() {
+    const value = searchInput.value.toLowerCase();
+    suggestionsList.innerHTML = '';
+
+    if (value.length === 0) {
+        suggestionsList.classList.add('hidden');
+        return;
+    }
+
+    let matches = [];
+
+    for (const name of tree.members.keys()) {
+        if (name.toLowerCase().startsWith(value)) {
+            matches.push(name);
+        }
+    }
+
+    if (matches.length > 0) {
+        for (let i = 0; i < matches.length; i++) {
+            let li = document.createElement('li');
+            li.textContent = matches[i];
+
+            li.addEventListener('click', function() {
+                searchInput.value = matches[i];
+                suggestionsList.classList.add('hidden');
+                document.getElementById('searchBtn').click();
+            });
+
+            suggestionsList.appendChild(li);
+        }
+        suggestionsList.classList.remove('hidden');
+    } else {
+        suggestionsList.classList.add('hidden');
+    }
+});
+
+document.addEventListener('click', function(event) {
+    if (event.target !== searchInput) {
+        suggestionsList.classList.add('hidden');
+    }
+});

@@ -1,0 +1,212 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+.container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    border-top: 10px solid #ffcc00;
+    margin: auto;
+}
+
+
+h1 {
+    margin-bottom: 5px;
+    color: #1a1a1a;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.search-box {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+input[type="text"]:focus {
+    border-color: #ffcc00;
+}
+
+button {
+    padding: 12px 25px;
+    background-color: #ffcc00;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #e6b800;
+    transform: translateY(-2px);
+}
+
+.results-card {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: left;
+    margin-top: 25px;
+    border-left: 6px solid #ffcc00;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.results-card h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #1a1a1a;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.result-section {
+    margin-bottom: 20px;
+}
+
+.result-section h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.result-section p {
+    margin: 0;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.hidden {
+    display: none;
+}
+.prophet-name {
+    color: #27ae60;
+    font-weight: bold;
+    background-color: #e8f8f5;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid #d1f2eb;
+}
+
+/* Style for the error message */
+.error {
+    color: #d32f2f;
+    background-color: #ffebee;
+    border: 1px solid #ffcdd2;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+/* Container for search input to hold the dropdown */
+.input-container {
+    position: relative;
+    flex: 1;
+}
+
+/* Styling for the suggestions dropdown list */
+#suggestionsList {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Styling for each item in the list */
+#suggestionsList li {
+    padding: 10px 15px;
+    cursor: pointer;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    transition: background-color 0.2s;
+}
+
+/* Hover effect */
+#suggestionsList li:hover {
+    background-color: #ffcc00;
+    color: #1a1a1a;
+    font-weight: bold;
+}
+/* Footer styling */
+.footer {
+    width: 100%;
+    background-color: #111111;
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: auto; /* Pushes the footer to the bottom */
+    box-sizing: border-box;
+}
+
+.footer p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.footer .app-name {
+    color: #ffcc00;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.footer .author {
+    color: #ffffff;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.footer .bootcamp {
+    color: #ffcc00;
+    font-size: 14px;
+    font-weight: bold;
+}
