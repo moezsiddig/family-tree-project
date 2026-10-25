@@ -1,6 +1,6 @@
 \# Prophets Family Tree
 
-
+🔗 **Live Demo:** [Click here to view the interactive Web App](https://moezsiddig.github.io/family-tree-project/)
 
 \## Overview
 
@@ -44,11 +44,8 @@ This project is a JavaScript implementation of a Family Tree data structure. It 
 
 \*\*How to Run:\*\*
 
-1\. Ensure that all project files (`index.html`, `style.css`, `FamilyTreeWeb.js`, `web-app.js`) are in the same folder.
-
-2\. Double-click the `index.html` file to open it in any web browser (e.g., Google Chrome, Safari). 
-
-3\. No server or installation is required.
+- You can click the **Live Demo** link at the top of this page.
+- Alternatively, download the project and simply open the `index.html` file in any web browser (e.g., Google Chrome, Safari). No server is required.
 
 
 
