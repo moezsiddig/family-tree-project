@@ -1,3 +1,9 @@
+/* Include padding and borders in every element's width,
+   so nothing grows wider than the screen */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
@@ -8,6 +14,8 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    padding-top: 30px;
+    overflow-x: hidden;
 }
 
 
@@ -16,11 +24,11 @@ body {
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: calc(100% - 32px);
     max-width: 700px;
     text-align: center;
     border-top: 10px solid #ffcc00;
-    margin: auto;
+    margin: auto auto 30px;
 }
 
 
@@ -60,6 +68,7 @@ input[type="text"]:focus {
 
 button {
     padding: 12px 25px;
+    white-space: nowrap;
     background-color: #ffcc00;
     color: #1a1a1a;
     border: none;
@@ -110,7 +119,8 @@ button:hover {
     margin: 0;
     color: #555;
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.8;
+    overflow-wrap: break-word;
 }
 
 .hidden {
@@ -123,6 +133,9 @@ button:hover {
     padding: 2px 6px;
     border-radius: 4px;
     border: 1px solid #d1f2eb;
+    display: inline-block;
+    margin: 2px 0;
+    line-height: 1.4;
 }
 
 /* Style for the error message */
@@ -184,7 +197,8 @@ button:hover {
     text-align: center;
     padding: 25px 0;
     margin-top: auto; /* Pushes the footer to the bottom */
-    box-sizing: border-box;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .footer p {
@@ -209,4 +223,68 @@ button:hover {
     color: #ffcc00;
     font-size: 14px;
     font-weight: bold;
+}
+/* ---------- Tablet (up to 900px wide) ---------- */
+@media (max-width: 900px) {
+    .container {
+        padding: 32px;
+    }
+}
+
+/* ---------- Phone (up to 600px wide) ---------- */
+@media (max-width: 600px) {
+    body {
+        padding-top: 16px;
+    }
+
+    .container {
+        padding: 24px 18px;
+        border-top-width: 8px;
+        margin-bottom: 16px;
+    }
+
+    h1 {
+        font-size: 22px;
+        line-height: 1.25;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    /* Stack the search box: input on top, full-width button below */
+    .search-box {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .results-card {
+        padding: 18px 15px;
+        margin-top: 15px;
+        border-left-width: 4px;
+    }
+
+    .results-card h2 {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    .result-section h3 {
+        font-size: 14px;
+    }
+
+    .footer .app-name {
+        font-size: 16px;
+    }
+
+    .footer .author,
+    .footer .bootcamp {
+        font-size: 13px;
+    }
 }
