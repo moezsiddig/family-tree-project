@@ -1,104 +1,169 @@
-/* Include padding and borders in every element's width,
-   so nothing grows wider than the screen */
-*, *::before, *::after {
+/* Colors used across the page */
+:root {
+    --yellow: #ffcc00;
+    --yellow-dark: #e6b800;
+    --black: #111111;
+    --bg: #f4f4f4;
+    --surface: #ffffff;
+    --surface-alt: #f9f9f9;
+    --text: #1a1a1a;
+    --muted: #555555;
+    --border: #e0e0e0;
+    --green: #27ae60;
+}
+
+/* Global reset: padding and borders count inside each element's width,
+   so nothing can grow wider than the screen */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
-    color: #1a1a1a;
-    margin: 0;
-    padding: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    padding-top: 30px;
     overflow-x: hidden;
 }
 
+button,
+input {
+    font-family: inherit;
+}
+
+/* Main area: centers the card and keeps space on the sides */
+.page {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 5%;
+}
 
 .container {
-    background: #ffffff;
+    background: var(--surface);
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    width: calc(100% - 32px);
+    width: 100%;
     max-width: 700px;
     text-align: center;
-    border-top: 10px solid #ffcc00;
-    margin: auto auto 30px;
+    border-top: 10px solid var(--yellow);
 }
 
-
 h1 {
-    margin-bottom: 5px;
-    color: #1a1a1a;
-    font-size: 28px;
+    margin-bottom: 6px;
+    color: var(--text);
+    font-size: 1.75rem;
     font-weight: 800;
+    line-height: 1.25;
 }
 
 .subtitle {
-    color: #666;
-    font-size: 15px;
+    color: #666666;
+    font-size: 0.95rem;
     margin-bottom: 30px;
 }
 
+/* ---------- Search ---------- */
 .search-box {
     display: flex;
     gap: 15px;
-    margin-bottom: 25px;
     width: 100%;
+}
+
+/* Holds the input and its suggestions dropdown */
+.input-container {
+    position: relative;
+    flex: 1;
+    min-width: 0; /* lets the input shrink inside the flex row */
 }
 
 input[type="text"] {
     width: 100%;
-    box-sizing: border-box;
     padding: 12px 15px;
-    border: 2px solid #e0e0e0;
+    border: 2px solid var(--border);
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 1rem; /* 16px also stops phones from zooming in on focus */
     outline: none;
     transition: border-color 0.3s;
 }
+
 input[type="text"]:focus {
-    border-color: #ffcc00;
+    border-color: var(--yellow);
 }
 
 button {
     padding: 12px 25px;
-    white-space: nowrap;
-    background-color: #ffcc00;
-    color: #1a1a1a;
+    background-color: var(--yellow);
+    color: var(--text);
     border: none;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: bold;
+    white-space: nowrap;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.1s;
 }
 
 button:hover {
-    background-color: #e6b800;
+    background-color: var(--yellow-dark);
     transform: translateY(-2px);
 }
 
+/* Suggestions dropdown */
+#suggestionsList {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--surface);
+    border: 1px solid #cccccc;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    max-height: 220px;
+    overflow-y: auto;
+    list-style-type: none;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#suggestionsList li {
+    padding: 11px 15px;
+    cursor: pointer;
+    text-align: left;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
+}
+
+#suggestionsList li:hover {
+    background-color: var(--yellow);
+    color: var(--text);
+    font-weight: bold;
+}
+
+/* ---------- Results ---------- */
 .results-card {
-    background: #f9f9f9;
+    background: var(--surface-alt);
     padding: 25px;
     border-radius: 8px;
     text-align: left;
     margin-top: 25px;
-    border-left: 6px solid #ffcc00;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-left: 6px solid var(--yellow);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .results-card h2 {
-    margin-top: 0;
-    font-size: 20px;
-    color: #1a1a1a;
-    border-bottom: 2px solid #eee;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: var(--text);
+    border-bottom: 2px solid #eeeeee;
     padding-bottom: 10px;
     margin-bottom: 15px;
 }
@@ -107,38 +172,37 @@ button:hover {
     margin-bottom: 20px;
 }
 
+.result-section:last-child {
+    margin-bottom: 0;
+}
+
 .result-section h3 {
-    margin: 0 0 8px 0;
-    font-size: 16px;
-    color: #333;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #333333;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .result-section p {
-    margin: 0;
-    color: #555;
-    font-size: 15px;
-    line-height: 1.8;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.9;
     overflow-wrap: break-word;
 }
 
-.hidden {
-    display: none;
-}
+/* Prophet names: a green tag that never splits across two lines */
 .prophet-name {
-    color: #27ae60;
+    display: inline-block;
+    color: var(--green);
     font-weight: bold;
     background-color: #e8f8f5;
-    padding: 2px 6px;
+    padding: 1px 6px;
     border-radius: 4px;
     border: 1px solid #d1f2eb;
-    display: inline-block;
-    margin: 2px 0;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
-/* Style for the error message */
 .error {
     color: #d32f2f;
     background-color: #ffebee;
@@ -148,143 +212,119 @@ button:hover {
     margin-top: 15px;
     font-weight: bold;
 }
-/* Container for search input to hold the dropdown */
-.input-container {
-    position: relative;
-    flex: 1;
+
+.hidden {
+    display: none;
 }
 
-/* Styling for the suggestions dropdown list */
-#suggestionsList {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    max-height: 200px;
-    overflow-y: auto;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-/* Styling for each item in the list */
-#suggestionsList li {
-    padding: 10px 15px;
-    cursor: pointer;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-    font-size: 15px;
-    transition: background-color 0.2s;
-}
-
-/* Hover effect */
-#suggestionsList li:hover {
-    background-color: #ffcc00;
-    color: #1a1a1a;
-    font-weight: bold;
-}
-/* Footer styling */
+/* ---------- Footer ---------- */
 .footer {
     width: 100%;
-    background-color: #111111;
+    background-color: var(--black);
     color: #ffffff;
     text-align: center;
-    padding: 25px 0;
-    margin-top: auto; /* Pushes the footer to the bottom */
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 25px 5%;
 }
 
 .footer p {
-    margin: 0;
     line-height: 1.6;
 }
 
 .footer .app-name {
-    color: #ffcc00;
+    color: var(--yellow);
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.1rem;
     margin-bottom: 5px;
 }
 
 .footer .author {
-    color: #ffffff;
-    font-size: 15px;
+    font-size: 0.95rem;
     margin-bottom: 5px;
 }
 
 .footer .bootcamp {
-    color: #ffcc00;
-    font-size: 14px;
+    color: var(--yellow);
+    font-size: 0.875rem;
     font-weight: bold;
 }
-/* ---------- Tablet (up to 900px wide) ---------- */
-@media (max-width: 900px) {
+
+/* ---------- Tablet ---------- */
+@media (max-width: 860px) {
+    .page {
+        padding: 40px 5%;
+    }
+
     .container {
-        padding: 32px;
+        padding: 32px 28px;
     }
 }
 
-/* ---------- Phone (up to 600px wide) ---------- */
-@media (max-width: 600px) {
-    body {
-        padding-top: 16px;
-    }
-
-    .container {
-        padding: 24px 18px;
-        border-top-width: 8px;
-        margin-bottom: 16px;
-    }
-
-    h1 {
-        font-size: 22px;
-        line-height: 1.25;
-    }
-
-    .subtitle {
-        font-size: 14px;
-        margin-bottom: 20px;
-    }
-
-    /* Stack the search box: input on top, full-width button below */
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+    /* Input on top, button underneath at full width */
     .search-box {
         flex-direction: column;
-        gap: 10px;
-        margin-bottom: 15px;
+        gap: 12px;
     }
 
     button {
         width: 100%;
     }
 
+    button:hover {
+        transform: none;
+    }
+}
+
+/* ---------- Small mobile ---------- */
+@media (max-width: 480px) {
+    .page {
+        padding: 24px 4%;
+    }
+
+    .container {
+        padding: 24px 16px;
+        border-top-width: 8px;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 1.35rem;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+    }
+
     .results-card {
-        padding: 18px 15px;
-        margin-top: 15px;
+        padding: 18px 14px;
+        margin-top: 18px;
         border-left-width: 4px;
     }
 
     .results-card h2 {
-        font-size: 18px;
-        line-height: 1.5;
+        font-size: 1.1rem;
     }
 
     .result-section h3 {
-        font-size: 14px;
+        font-size: 0.875rem;
+    }
+
+    .result-section p {
+        font-size: 0.9rem;
+    }
+
+    .footer {
+        padding: 20px 5%;
     }
 
     .footer .app-name {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .footer .author,
     .footer .bootcamp {
-        font-size: 13px;
+        font-size: 0.8rem;
     }
 }

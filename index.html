@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prophets Family Tree</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css?v=2">
 </head>
 <body>
 
+<main class="page">
 <div class="container">
     <h1>Prophets Family Tree App</h1>
     <p class="subtitle">Interactive Family Tree Data Structure Project</p>
@@ -15,7 +16,7 @@
     <!-- Search Section -->
     <div class="search-box">
         <div class="input-container">
-            <input type="text" id="memberName" placeholder="Enter a name (e.g., Abraham, Muhammad)..." autocomplete="off">
+            <input type="text" id="memberName" placeholder="Enter a name, e.g. Abraham" autocomplete="off">
             <ul id="suggestionsList" class="hidden"></ul>
         </div>
         <button id="searchBtn">Search Lineage</button>
@@ -43,6 +44,7 @@
 
     <p id="errorMsg" class="error hidden"></p>
 </div>
+</main>
 
 <!-- Footer with Copyright -->
 <footer class="footer">
